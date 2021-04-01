@@ -50,7 +50,11 @@ public abstract class ExplanationBlock extends Explanation {
 		if(kind.isValueProduced) {
 			if(kind.isInstantiation) return true;
 			if(answer.trace.getInstruction(explanation.getEventID()).isIO()) return true;
-			else if(answer.getQuestion().getSubject() instanceof Integer && explanation.getEventID() == (Integer)answer.getQuestion().getSubject()) return true;
+      // [javac] whyline/edu/cmu/hcii/whyline/qa/ExplanationBlock.java:53: inconvertible types
+      // [javac] found   : edu.cmu.hcii.whyline.util.Named
+      // [javac] required: java.lang.Integer
+      // [javac] 			else if(answer.getQuestion().getSubject() instanceof Integer && explanation.getEventID() == (Integer)answer.getQuestion().getSubject()) return true;
+			// else if(answer.getQuestion().getSubject() instanceof Integer && explanation.getEventID() == (Integer)answer.getQuestion().getSubject()) return true;
 			else if(answer instanceof CauseAnswer && ((CauseAnswer)answer).getEventID() == explanation.getEventID()) return true;
 			else if(answer instanceof ThisCodeDidExecuteAnswer && ((ThisCodeDidExecuteAnswer)answer).containsEventID(explanation.getEventID())) return true;
 			else if(answer instanceof UnexecutedAnswer) {
