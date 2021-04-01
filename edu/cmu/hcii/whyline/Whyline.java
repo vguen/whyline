@@ -7,7 +7,7 @@ import java.util.prefs.Preferences;
 
 import edu.cmu.hcii.whyline.ui.UI;
 import edu.cmu.hcii.whyline.ui.WhylineUI;
-import edu.cmu.hcii.whyline.ui.launcher.MacLauncherUI;
+// import edu.cmu.hcii.whyline.ui.launcher.MacLauncherUI;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ANYTHING IMPORTED AND LOADED BY THIS FILE CANNOT BE INSTRUMENTED. 
@@ -138,7 +138,9 @@ public final class Whyline {
 			}
 			
 			if(System.getProperty("os.name").startsWith("Mac")) {
-				new MacLauncherUI();
+				// new MacLauncherUI();
+        System.out.println("Support for OSX is disabled");
+				System.exit(1);
 			}
 			else {
 				new edu.cmu.hcii.whyline.ui.launcher.LauncherUI();
